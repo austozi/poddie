@@ -90,6 +90,8 @@ generate_index() {
 	local poddie_description=$PODDIE_DESCRIPTION
 	local poddie_shows=$(niet -f json shows "$yaml")
 	
+	echo "poddie: Generating index page..."
+	
 	echo "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"\" xml:lang=\"\"><head><meta charset=\"utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\" /><title>$poddie_title</title><link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\"/></head><body><h1>$poddie_title</h1><p>$poddie_description</p><ul>" > "$html_file"
 	
 	echo "$poddie_shows" | jq -c ".[]" | while read d; do 

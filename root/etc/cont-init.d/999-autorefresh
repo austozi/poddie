@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+
+autorefresh() {
+	bash /usr/local/bin/refresh
+	echo "poddie: Last autorefresh completed `date`."
+	echo "poddie: Standing by till next autorefresh ($PODDIE_UPDATE_INTERVAL)..."
+	sleep $PODDIE_UPDATE_INTERVAL
+	autorefresh
+}
+
+autorefresh &

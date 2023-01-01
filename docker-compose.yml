@@ -1,0 +1,20 @@
+version: "2.4"
+services:
+  podcasts:
+    image: austozi/poddie:latest
+    container_name: poddie
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/London
+      PODDIE_BASE_URL: http://192.168.0.104:5000
+      PODDIE_TITLE: Podcasts
+      PODDIE_DESCRIPTION: Generate your own podcast feeds from MP3 files. Powered by Podcats.
+      PODDIE_ICON: http://192.168.0.104:5000/icon.png
+      PODDIE_UPDATE_INTERVAL: 12h
+    volumes:
+      - ./config/www:/config/www
+      - ./config/poddie:/config/poddie:ro
+    ports:
+      - 5000:80

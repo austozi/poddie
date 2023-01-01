@@ -94,7 +94,8 @@ generate_index() {
 	
 	echo "$poddie_shows" | jq -c ".[]" | while read d; do 
 		local show_title=$(echo "$d" | jq -cr .title)
-		local show_description=$(echo "$d" | jq -cr .description)
+		local show_description=$(echo "$d" | jq -cr .description)		
+		local show_url=$(echo "$d" | jq -cr .url)
 		local slug=$(echo "$show_url" | md5sum | cut -d " " -f 1)
 		echo "<li><strong><a href=\"/static/$slug/\">$show_title</a></strong><br />$show_description</strong></li>" >> "$html_file"
 	done

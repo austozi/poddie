@@ -20,12 +20,6 @@ At the heart of Poddie are:
 - Simple configuration using a YAML file.
 - Automatic yt-dlp updates to overcome frequent third-party website/API changes.
 
-## Disclaimer
-
-Use this application at your own risk. 
-
-I am no professional developer. This is a hacky solution that I put together to satisfy a personal need of mine, because I could not get [Podify](https://github.com/podify-org/podify) to work on my machine. This implementation has many limitations. However, I may not have the skills or time to resolve them. However, pull requests are welcome.
-
 ## Installation
 
 Docker installation is supported. Ensure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/) installed on the host machine. 
@@ -67,3 +61,9 @@ shows:
     icon: https://example.com/another-show/cover.png
     description: Another summary for another show.
 ```
+
+## Disclaimer
+
+Use this application at your own risk. 
+
+I am no professional developer. This is a hacky solution that I put together to satisfy a personal need of mine, because I could not get [Podify](https://github.com/podify-org/podify) to work on my machine. This implementation has many limitations. However, I may not have the skills or time to resolve them. However, pull requests are welcome.

@@ -22,7 +22,7 @@ At the heart of Poddie are:
 
 ## Disclaimer
 
-Use this application at your own risk. I am no professional developer. This is a hacky solution that I put together to satisfy a personal need of mine, because I could not get [Podify](https://github.com/podify-org/podify) to work on my machine. This implementation has many limitations. However, I may not have the skills or time to resolve them.
+Use this application at your own risk. I am no professional developer. This is a hacky solution that I put together to satisfy a personal need of mine, because I could not get [Podify](https://github.com/podify-org/podify) to work on my machine. This implementation has many limitations. However, I may not have the skills or time to resolve them. However, pull requests are welcome.
 
 ## Installation
 

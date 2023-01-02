@@ -19,6 +19,7 @@ At the heart of Poddie are:
 - Generates an index page (HTML) of all shows.
 - Checks for new episodes automatically at a configurable time interval.
 - Simple configuration using a YAML file.
+- Automatic yt-dlp updates to overcome frequent third-party website/API changes.
 
 ## Disclaimer
 

@@ -22,7 +22,7 @@ At the heart of Poddie are:
 
 ## Disclaimer
 
-I am no coder and this is a hacky solution that I put together to satisfy a personal need of mine.  I came up with this because I couldn't get [Podify](https://github.com/podify-org/podify) to work on my machine. This implementation has many limitations. However, I may not have the skills or time to resolve them. Contibutions or forks are welcome.
+I am no coder and this is a hacky solution that I put together to satisfy a personal need of mine.  I came up with Poddie because I could not get [Podify](https://github.com/podify-org/podify) to work on my machine. This implementation has many limitations. However, I may not have the skills or time to resolve them. Contibutions or forks are welcome.
 
 ## Installation
 

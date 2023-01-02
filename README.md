@@ -12,8 +12,7 @@ At the heart of Poddie are:
 
 ## Features
 
-- Downloads media files from third-party websites.
-- Supports all websites that yt-dlp supports.
+- Downloads media files from third-party websites supported by yt-dlp.
 - Supports multiple shows.
 - Generates a separate podcast feed (XML) and webpage (HTML) for each show.
 - Generates an index page (HTML) of all shows.

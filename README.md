@@ -4,6 +4,12 @@ Poddie is a self-hosted media downloader and podcast feed generator.
 
 Poddie uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the media files into a folder on the local machine (e.g. media server). It then invokes [podcats](https://github.com/jakubroztocil/podcats) to generate a podcast feed for the media files and serves it via the NGINX web server (it is based on the [LinuxServer.io NGINX Docker image](https://github.com/linuxserver/docker-nginx)). You can then subscribe to the podcast by adding the podcast feed in a podcast player of your choice.
 
+At the heart of Poddie are:
+
+- A bash script (`/usr/local/bin/refresh`) to check for new media, download them, generate a feed, a webpage for the show and an index page for all shows.
+- A bash script (`/etc/cont-init.d/999-autorefresh`) to automatically invoke `/usr/local/bin/refresh` on system startup and periodically.
+- A YAML configuration file containing details of the shows.
+
 ## Features
 
 - Downloads media files from third-party websites.
@@ -13,6 +19,10 @@ Poddie uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the media fil
 - Generates an index page (HTML) of all shows.
 - Checks for new episodes automatically at a configurable time interval.
 - Simple configuration using a YAML file.
+
+## Disclaimer
+
+I am no coder and this is a hacky solution that I put together to satisfy a personal need of mine.  I came up with this because I couldn't get [Podify](https://github.com/podify-org/podify) to work on my machine. This implementation has many limitations. However, I may not have the skills or time to resolve them. Contibutions or forks are welcome.
 
 ## Installation
 

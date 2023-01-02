@@ -1,6 +1,6 @@
 # Poddie
 
-Poddie is a self-hosted media downloader and podcast feed generator. It downloads media files from third-party websites and generates a podcast feed for them. It will check for new epidoes at a configurable time interval. It supports multiple feeds for different shows.
+Poddie is a self-hosted media downloader and podcast feed generator. It downloads media files from third-party websites and generates a podcast feed for them. It will check for new episodes at a configurable time interval. It supports multiple feeds for different shows.
 
 Poddie uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the media files into a folder on the local machine (e.g. media server), and so supports any sources that yt-dlp supports. It then invokes [podcats](https://github.com/jakubroztocil/podcats) to generate a podcast feed for the media files. You can then subscribe to the podcast by adding the podcast feed in a podcast player of your choice.
 

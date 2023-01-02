@@ -47,7 +47,9 @@ You may skip this step if using the ready-made image from Docker Hub.
 
 ## Configuration
 
-Poddie is configured using a YAML file. Save this as config.yml and map it to /config/poddie/config.yml in the container. This file must be present before starting the container for the first time, or Poddie will complain.
+Poddie is configured using a YAML file. Save this as config.yml and map it to /config/poddie/config.yml in the container. This configuration must be done before starting the container for the first time, or Poddie will complain.
+
+For example:
 
 ```
 # config.yml

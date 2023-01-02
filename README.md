@@ -6,8 +6,8 @@ Poddie uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the media fil
 
 At the heart of Poddie are:
 
-- A bash script (`/usr/local/bin/refresh`) to check for new media, download them, generate a feed for the show, a webpage for the show and an index page for all shows.
-- A bash script (`/etc/cont-init.d/999-autorefresh`) to automatically invoke `/usr/local/bin/refresh` on system startup and periodically.
+- A bash script (/usr/local/bin/refresh) to check for new media, download them, generate a feed for the show, a webpage for the show and an index page for all shows.
+- A bash script (/etc/cont-init.d/999-autorefresh) to automatically invoke /usr/local/bin/refresh on system startup and periodically.
 - A YAML configuration file containing details of the shows.
 
 ## Features
@@ -44,3 +44,22 @@ You may skip this step if using the ready-made image from Docker Hub.
 3. Edit docker-compose.yml as appropriate.
 4. Configure shows in ./config/poddie/config.yml (mapped to /config/poddie/config.yml in the container).
 5. Execute the following: `docker-compose up -d`
+
+## Configuration
+
+Poddie is configured using a YAML file. Save this as config.yml mapped to /config/poddie/config.yml in the container.
+
+```
+# config.yml
+shows:
+  - title: The Title of the Show
+    url: https://example.com/podcast # URL fed to yt-dlp, usually a playlist
+    icon: https://example.com/podcast/cover.png # Cover art for the show
+    description: A summary of what the show is about.
+    max_episodes: 20 # Optional. Corresponds to `--max-download` option for yt-dlp. Default = 10.
+    
+  - title: Another show
+    url: https://example.com/another-show
+    icon: https://example.com/another-show/cover.png
+    description: Another summary for another show.    
+```

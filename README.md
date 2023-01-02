@@ -64,5 +64,5 @@ shows:
   - title: Another show
     url: https://example.com/another-show
     icon: https://example.com/another-show/cover.png
-    description: Another summary for another show.    
+    description: Another summary for another show.
 ```

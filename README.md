@@ -45,7 +45,7 @@ You may skip this step if using the ready-made image from Docker Hub.
 
 ### Environment variables
 
-The Poddie container is configured using the following environment variables. Some of these variables will appear in the index page at the root of the web server.
+The Poddie container is configured using the following environment variables in docker-compose.yml. Some of these variables will appear in the index page at the root of the web server.
 
 | Environment variable | Function |
 |-|-|

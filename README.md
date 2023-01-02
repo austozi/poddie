@@ -6,7 +6,9 @@ Poddie uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the media fil
 
 ## Installation
 
-Docker installation is supported. Ensure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/) installed on the host machine. The latest image is available from [Docker Hub](https://hub.docker.com/r/austozi/poddie) but for selected hardware architectures only. If a suitable image is not available to you, you may build the image yourself.
+Docker installation is supported. Ensure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/) installed on the host machine. 
+
+The latest Docker image for Poddie is available from [Docker Hub](https://hub.docker.com/r/austozi/poddie) but for selected hardware architectures only. If a suitable image is not available to you, you may build the image yourself.
 
 ### Build the Docker image
 

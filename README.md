@@ -13,11 +13,19 @@ Docker installation is supported. Ensure you have `docker-ce` and `docker-compos
 ### Build the Docker image
 
 1. Download the source for the [latest release](https://github.com/austozi/poddie/releases/latest) and extract the contents.
-2. On the command line, navigate to the extracted directory where Dockerfile is, and execute `docker build -t austozi/poddie:latest .`.
+2. On the command line, navigate to the extracted directory where Dockerfile is, and execute the following: 
+
+```
+docker build -t austozi/poddie:latest .
+```
 
 ### Install the Docker container
 
 1. Download the source for the [latest release](https://github.com/austozi/poddie/releases/latest) and extract the contents.
 2. On the command line, navigate to the extracted directory where docker-compose.yml is.
 3. Edit docker-compose.yml as appropriate.
-4. Execute `docker-compose up -d`.
+4. Execute the following: 
+ 
+```
+docker-compose up -d
+```

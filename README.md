@@ -12,7 +12,7 @@ The latest Docker image for Poddie is available from [Docker Hub](https://hub.do
 
 ### Build the Docker image
 
-You may skip this step if using the ready-made image on Docker Hub.
+You may skip this step if using the ready-made image from Docker Hub.
 
 1. Download the source for the [latest release](https://github.com/austozi/poddie/releases/latest) and extract the contents.
 2. On the command line, navigate to the extracted directory where Dockerfile is, and execute the following: `docker build -t austozi/poddie:latest .`

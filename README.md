@@ -6,7 +6,7 @@ Poddie uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the media fil
 
 At the heart of Poddie are:
 
-- A bash script (`/usr/local/bin/refresh`) to check for new media, download them, generate a feed, a webpage for the show and an index page for all shows.
+- A bash script (`/usr/local/bin/refresh`) to check for new media, download them, generate a feed for the show, a webpage for the show and an index page for all shows.
 - A bash script (`/etc/cont-init.d/999-autorefresh`) to automatically invoke `/usr/local/bin/refresh` on system startup and periodically.
 - A YAML configuration file containing details of the shows.
 

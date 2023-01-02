@@ -43,6 +43,23 @@ You may skip this step if using the ready-made image from Docker Hub.
 
 ## Configuration
 
+### Environment variables
+
+The Poddie container is configured using the following environment variables. Some of these variables will appear in the index page at the root of the web server.
+
+| Environment variable | Function |
+|-|-|
+| PUID | UserID in the container |
+| PGID | GroupID in the container |
+| TZ | Timezone in the container |
+| PODDIE_BASE_URL | Server URL to access Poddie |
+| PODDIE_TITLE | Website title for the Poddie instance |
+| PODDIE_ICON | Website icon for the Poddie instance |
+| PODDIE_DESCRIPTION | Summary of the Poddie instance |
+| PODDIE_UPDATE_INTERVAL | Interval at which to update the podcast feeds and index |
+
+### YAML file
+
 The shows are configured using a YAML file. Save this as config.yml and map it to /config/poddie/config.yml in the container. This configuration must be done before starting the container for the first time, or Poddie will complain.
 
 For example:

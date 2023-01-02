@@ -24,7 +24,8 @@ docker build -t austozi/poddie:latest .
 1. Download the source for the [latest release](https://github.com/austozi/poddie/releases/latest) and extract the contents.
 2. On the command line, navigate to the extracted directory where docker-compose.yml is.
 3. Edit docker-compose.yml as appropriate.
-4. Execute the following: 
+4. Configure shows in ./config/poddie/config.yml (mapped to /config/poddie/config.yml in the container).
+5. Execute the following: 
  
 ```
 docker-compose up -d

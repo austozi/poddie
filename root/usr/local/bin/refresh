@@ -68,18 +68,23 @@ generate_feed() {
 	
 }
 
+escape() {
+	local string="$1"
+	echo "$i" | sed -E "s/</&lt;/g" | sed -E "s/>/&gt;/g" | sed -E "s/\"/&quot;/g"
+}
+
 generate_html() {
 
 	local show_title="$1"
 	local show_url="$2"
 	local show_icon="$3"
-	local show_description="$4"
+	local show_description=$4
 	local slug="$5"
 	local target_dir="/config/www/static/$slug"
 	local html_file="$target_dir/index.html"
 	
 	echo "poddie: Generating HTML page..."
-	echo "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"\" xml:lang=\"\"><head><meta charset=\"utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\" /><title>$show_title</title><link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\"/></head><body><h1>$show_title</h1><p><a href=\"$show_url\" target=\"_blank\"><img src=\"$show_icon\" /></a></p><p>$show_description</p><p><a href=\"$show_url\" target=\"_blank\">More details</a></p><p><a href=\"feed.xml\" style=\"display: inline-block; padding: 10pt 20pt 10pt 20pt; background-color: navy; color: white; text-decoration: none; font-weight: bold;\">Subscribe</a></p></body></html>" > "$html_file"
+	echo "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"\" xml:lang=\"\"><head><meta charset=\"utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\" /><title>$(escape "$show_title")</title><link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\"/></head><body><h1>$(escape "$show_title")</h1><p><a href=\"$show_url\" target=\"_blank\"><img src=\"$show_icon\" /></a></p><p>$(escape "$show_description")</p><p><a href=\"$show_url\" target=\"_blank\">More details</a></p><p><a href=\"feed.xml\" style=\"display: inline-block; padding: 10pt 20pt 10pt 20pt; background-color: navy; color: white; text-decoration: none; font-weight: bold;\">Subscribe</a></p></body></html>" > "$html_file"
 	chown $PUID:$PGID "$html_file"
 	
 }
@@ -94,14 +99,14 @@ generate_index() {
 	
 	echo "poddie: Generating index page..."
 	
-	echo "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"\" xml:lang=\"\"><head><meta charset=\"utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\" /><title>$poddie_title</title><link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\"/></head><body><h1>$poddie_title</h1><p>$poddie_description</p><ul>" > "$html_file"
+	echo "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"\" xml:lang=\"\"><head><meta charset=\"utf-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\" /><title>$(escape "$poddie_title")</title><link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\"/></head><body><h1>$(escape "$poddie_title")</h1><p>$(escape "$poddie_description")</p><ul>" > "$html_file"
 	
 	echo "$poddie_shows" | jq -c ".[]" | while read d; do 
 		local show_title=$(echo "$d" | jq -cr .title)
 		local show_description=$(echo "$d" | jq -cr .description)		
 		local show_url=$(echo "$d" | jq -cr .url)
 		local slug=$(echo "$show_url" | md5sum | cut -d " " -f 1)
-		echo "<li><strong><a href=\"/static/$slug/\">$show_title</a></strong><br />$show_description</strong></li>" >> "$html_file"
+		echo "<li><strong><a href=\"/static/$slug/\">$(escape "$show_title")</a></strong><br />$(escape "$show_description")</strong></li>" >> "$html_file"
 	done
 	
 	echo "</ul></body></html>" >> "$html_file"

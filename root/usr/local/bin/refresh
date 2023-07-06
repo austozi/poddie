@@ -59,10 +59,16 @@ generate_feed() {
 	
 	echo "poddie: Generating RSS feed..."
 	podcats --host localhost --port 5000 --title "$show_title" --link "$show_url" generate "$target_dir" > "$xml_file"
-	
+
+	# Customise default XML code
+	sed -i 's|<rss version="2.0">|<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ppg="http://bbc.co.uk/2009/01/ppgRss" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">|' "$xml_file"
 	sed -i "s|http://localhost:5000/static/|$PODDIE_BASE_URL/static/$slug/|g" "$xml_file"
 	sed -E -i "s|<description>.+</description>|<description>$show_description</description>|" "$xml_file"
 	sed -i "s|</link>|</link><image><url>$show_icon</url></image>|" "$xml_file"
+
+	# Add iTunes tags for better compatibility with podcast players
+	sed -E -i "s|<description>(.+)</description>|<description>$1</description><itunes:summary>$1</itunes:summary>|" "$xml_file"
+	sed -E -i "s|<link>(.+)</link>|<link>$1</link><itunes:new-feed-url>$1</itunes:new-feed-url>|" "$xml_file"
 	
 	chown $PUID:$PGID "$xml_file"
 	

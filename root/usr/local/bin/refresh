@@ -60,6 +60,12 @@ generate_feed() {
 	echo "poddie: Generating RSS feed..."
 	podcats --host localhost --port 5000 --title "$show_title" --link "$show_url" generate "$target_dir" > "$xml_file"
 
+	# Customise default XML code
+	sed -i "s|http://localhost:5000/static/|$PODDIE_BASE_URL/static/$slug/|g" "$xml_file"
+	sed -Ei "s|<description>.+</description>|<description>$show_description</description><itunes:summary>$show_description</itunes:summary>|" "$xml_file"
+	sed -i "s|</link>|</link><image><url>$show_icon</url></image>|" "$xml_file"
+	sed -Ei "s|<link>(.+)</link>|<link>\1</link><itunes:new-feed-url>\1</itunes:new-feed-url>|" "$xml_file"
+
 	chown $PUID:$PGID "$xml_file"
 	
 }

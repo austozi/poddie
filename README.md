@@ -24,7 +24,7 @@ At the heart of Poddie are:
 
 Docker installation is supported. Ensure you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/) installed on the host machine. 
 
-The latest Docker image for Poddie is available from [Docker Hub](https://hub.docker.com/r/austozi/poddie) but for selected hardware architectures only. If what is available is unsuitable, you may build the image yourself.
+The latest Docker image for Poddie is available from [Docker Hub](https://hub.docker.com/r/austozi/poddie) but for selected hardware architectures only. You may also build the image yourself, but only for amd64 and arm64, because the upstream linuxserver/nginx image only supports these architectures. 
 
 ### Build the Docker image
 

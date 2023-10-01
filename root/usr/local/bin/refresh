@@ -64,7 +64,7 @@ generate_feed() {
 	sed -i "s|http://localhost:5000/static/|$PODDIE_BASE_URL/static/$slug/|g" "$xml_file"
 	sed -Ei "s|<description>.+</description>|<description>$show_description</description><itunes:summary>$show_description</itunes:summary>|" "$xml_file"
 	sed -i "s|</link>|</link><image><url>$show_icon</url></image>|" "$xml_file"
-	sed -Ei "s|<link>(.+)</link>|<link>\1</link><itunes:new-feed-url>\1</itunes:new-feed-url>|" "$xml_file"
+	sed -Ei "s|<link>(.+)</link>|<link>\1</link><itunes:new-feed-url>$PODDIE_BASE_URL/static/$slug/feed.xml</itunes:new-feed-url>|" "$xml_file"
 
 	chown $PUID:$PGID "$xml_file"
 	
